@@ -1,10 +1,7 @@
 Glucompita-23.06.25/App.tsx
 ↓
 App.tsx
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
-*/
+
 /**
  * Copyright 2024 Google LLC
  *
