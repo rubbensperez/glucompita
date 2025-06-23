@@ -1,0 +1,1262 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  --text: white;
+  --gray-200: #b4b8bb;
+  --gray-300: #80868b;
+  --gray-500: #5f6368;
+  --gray-600: #80868b;
+  --gray-700: #5f6368;
+  --gray-800: #3c4043;
+  --gray-900: #202124;
+  --gray-1000: #0a0a0a;
+  --border-stroke: #444444;
+  --accent-blue: rgb(161, 228, 242);
+  --accent-blue-active-bg: #001233;
+  --accent-blue-active: #98beff;
+  --accent-blue-headers: #448dff;
+  --accent-green: rgb(168, 218, 181);
+  --midnight-blue: rgb(0, 18, 51);
+  --blue-30: #99beff;
+  --accent-red: #ff4600; /* This was the old red, now largely replaced by orange for mic */
+  --background: var(--gray-900);
+  --color: var(--text);
+  scrollbar-color: var(--gray-600) var(--gray-900);
+  scrollbar-width: thin;
+  --font-family: 'google sans' 'Space Mono', monospace;
+  /* Colors */
+  --Neutral-00: #000;
+  --Neutral-5: #181a1b;
+  --Neutral-10: #1c1f21;
+  --Neutral-15: #232729;
+  --Neutral-20: #2a2f31;
+  --Neutral-30: #404547;
+  --Neutral-50: #707577;
+  --Neutral-60: #888d8f;
+  --Neutral-80: #c3c6c7;
+  --Neutral-90: #e1e2e3;
+  --Green-500: #0d9c53;
+  --Green-700: #025022;
+  --Blue-400: #80c1ff;
+  --Blue-500: #1f94ff;
+  --Blue-800: #0f3557;
+  --Red-400: #ff9c7a; /* Lighter red, for hover if needed */
+  --Red-500: #ff4600; /* Base red, now largely replaced by orange for mic */
+  --Red-600: #e03c00;
+  --Red-700: #bd3000;
+  --card-header: #2e96ff;
+  --card-border: #217bfe;
+  --card-background: #13151a;
+  --card-border-radius: 16px;
+  --gluco-orange: #fa7b17; /* Glucompita Orange */
+  --gluco-orange-darker: #e06c15; /* Darker Glucompita Orange for hovers */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Google Sans Display', sans-serif;
+  background: var(--Neutral-00);
+  color: var(--text); /* Ensure default text color is white for body */
+}
+
+:root {
+  background: var(--Neutral-00);
+  color: var(--text);
+  font-family: var(--font-family);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  color: var(--text); /* Ensure headings are white */
+}
+
+li {
+  list-style: none;
+  color: var(--text); /* Ensure list items are white */
+}
+
+p {
+ color: var(--text); /* Ensure paragraphs are white */
+}
+
+input,
+textarea {
+  font-family: var(--font-family);
+  background: var(--Neutral-15); /* Slightly lighter background for inputs */
+  color: white;
+  border: 1px solid var(--Neutral-30);
+  outline: none;
+  font-size: 16px; /* Adjusted from 18px to fit better in forms */
+  resize: none;
+  user-select: text;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%; /* Make inputs take full width of their container */
+}
+
+input::placeholder,
+textarea::placeholder {
+  user-select: none;
+  color: var(--Neutral-60);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--gluco-orange);
+  box-shadow: 0 0 0 2px rgba(250, 123, 23, 0.3); /* Orange focus ring */
+}
+
+
+select {
+  font-family: inherit;
+  padding: 10px;
+  border: 1px solid var(--gray-700);
+  background: var(--background);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  accent-color: var(--text);
+}
+
+select:focus-visible {
+  outline: none;
+}
+button {
+  font-family: var(--font-family);
+  background: none;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center text/icon in button */
+  gap: 8px; /* Increased gap slightly */
+  padding: 10px 15px; /* Add some padding */
+  border-radius: 8px; /* Rounded corners */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+
+  &.primary {
+    background: var(--gluco-orange); /* Use Glucompita orange for primary buttons */
+    color: var(--Neutral-00); /* Black text on orange for contrast */
+  }
+  &.primary:hover {
+    background: var(--gluco-orange-darker); /* Darker orange on hover */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  &.icon {
+    font-size: 1.2em;
+  }
+}
+
+.button {
+  background: var(--Neutral-30);
+  display: inline-flex;
+  padding: 10px;
+  border-radius: 8px;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.button .icon {
+  font-size: 1.2em;
+}
+
+button:focus {
+  outline: 2px solid var(--gluco-orange); /* Orange focus outline */
+  outline-offset: 2px;
+}
+
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--Neutral-20);
+}
+
+button .icon {
+  display: block;
+}
+
+.icon {
+  font-family: 'Material Symbols Outlined';
+  font-weight: 300;
+  line-height: 1;
+}
+
+.space-mono-regular {
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.h-screen-full {
+  height: 100vh;
+}
+
+.w-screen-full {
+  width: 100vw;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+header > * {
+  pointer-events: auto;
+}
+
+header:hover h1,
+header:hover .roomDescription,
+header:hover .createButton {
+  opacity: 1;
+}
+
+.simpleMode header {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.simpleMode header:hover {
+  opacity: 1;
+}
+
+.streaming-console {
+  background: var(--Neutral-10);
+  color: var(--gray-300);
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+.streaming-console a,
+.streaming-console a:visited,
+.streaming-console a:active {
+  color: var(--gray-300);
+}
+.streaming-console .disabled {
+  pointer-events: none;
+}
+.streaming-console .disabled > * {
+  pointer-events: none;
+}
+.streaming-console main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 1rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+.streaming-console .main-app-area {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+.streaming-console .function-call {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50%;
+  overflow-y: auto;
+}
+
+@keyframes hover {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3.5px);
+  }
+}
+@keyframes pulse {
+  from {
+    scale: 1 1;
+  }
+  to {
+    scale: 1.2 1.2;
+  }
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--Neutral-20);
+  color: var(--Neutral-60);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  text-transform: lowercase;
+  cursor: pointer;
+  animation: opacity-pulse 3s ease-in infinite;
+  transition: all 0.2s ease-in-out;
+  width: 48px;
+  height: 48px;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  user-select: none;
+  cursor: pointer;
+}
+.action-button:focus {
+  border: 2px solid var(--Neutral-20);
+  outline: 2px solid var(--Neutral-80);
+}
+.action-button.outlined {
+  background: var(--Neutral-2);
+  border: 1px solid var(--Neutral-20);
+}
+.action-button .no-action {
+  pointer-events: none;
+}
+.action-button:hover {
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid var(--Neutral-20);
+}
+.action-button.connected {
+  background: var(--Blue-800);
+  color: var(--Blue-500);
+}
+.action-button.connected:hover {
+  border: 1px solid var(--Blue-500);
+}
+
+@property --volume {
+  syntax: 'length';
+  inherit: false;
+  initial-value: 0px;
+}
+.disabled .mic-button:before,
+.mic-button.disabled:before {
+  background: rgba(0, 0, 0, 0);
+}
+
+.mic-button {
+  position: relative;
+  background-color: var(--gluco-orange); /* Changed from --accent-red */
+  z-index: 1;
+  color: var(--Neutral-00); /* Black text for contrast on orange */
+  transition: all 0.2s ease-in;
+}
+.mic-button:focus {
+  border: 2px solid var(--Neutral-20);
+  outline: 2px solid var(--gluco-orange); /* Changed from --Red-500 */
+}
+.mic-button:hover {
+  background-color: var(--gluco-orange-darker); /* Changed from --Red-400 */
+}
+.mic-button:before {
+  position: absolute;
+  z-index: -1;
+  top: calc(var(--volume) * -1);
+  left: calc(var(--volume) * -1);
+  display: block;
+  content: '';
+  opacity: 0.35;
+  background-color: var(--gluco-orange); /* Changed from --Red-500 */
+  width: calc(100% + var(--volume) * 2);
+  height: calc(100% + var(--volume) * 2);
+  border-radius: 24px;
+  transition: all 0.02s ease-in-out;
+}
+
+.connect-toggle:focus {
+  border: 2px solid var(--Neutral-20);
+  outline: 2px solid var(--gluco-orange); /* Changed to orange for consistency */
+}
+.connect-toggle:not(.connected) {
+  background-color: var(--gluco-orange); /* Changed from --Blue-500 */
+  color: var(--Neutral-00); /* Black text for contrast */
+}
+
+.control-tray {
+  position: absolute;
+  bottom: 90px; /* Increased from 0 to move it up */
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  padding-bottom: 18px;
+  z-index: 12;
+}
+.control-tray .disabled .action-button,
+.control-tray .action-button.disabled {
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid var(--Neutral-30, #404547);
+  color: var(--Neutral-30);
+}
+.control-tray .connection-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+.control-tray .connection-container .connection-button-container {
+  border-radius: 27px;
+  border: 1px solid var(--Neutral-30);
+  background: var(--Neutral-5);
+  padding: 10px;
+}
+.control-tray .connection-container .text-indicator {
+  font-size: 11px;
+  color: var(--Blue-500); /* Kept blue for streaming indicator, or change if needed */
+  user-select: none;
+}
+.control-tray .connection-container:not(.connected) .text-indicator {
+  opacity: 0;
+}
+
+.actions-nav {
+  background: var(--Neutral-5);
+  border: 1px solid var(--Neutral-30);
+  border-radius: 27px;
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  overflow: clip;
+  padding: 10px;
+  transition: all 0.6s ease-in;
+}
+.actions-nav > * {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@keyframes opacity-pulse {
+  0% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+.top {
+  width: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  height: 30px;
+  display: flex;
+  align-self: flex-end;
+  align-items: center;
+  transition: all 0.2s ease-in;
+}
+
+.top button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  padding: 4px;
+}
+
+.keynote-companion {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.counter-container {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  z-index: 10;
+}
+
+/* Modal */
+.modalShroud {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  background-color: rgba(0,0,0,0.7); /* Added shroud background */
+}
+
+.modalShroud .modal {
+  background: var(--Neutral-10); /* Darker modal background */
+  border: 1px solid var(--Neutral-30); /* Slightly lighter border */
+  border-radius: 10px;
+  padding: 30px; /* Reduced padding */
+  position: relative;
+  min-width: 350px;
+  max-width: 500px; /* Max width for modals */
+  max-height: 90vh; /* Adjusted max height */
+  overflow: auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modalShroud .modal h2 {
+  margin-bottom: 20px;
+  color: var(--gluco-orange); /* Orange for modal titles */
+  font-size: 1.8em;
+}
+
+.modalClose {
+  position: absolute;
+  top: 15px; /* Adjusted position */
+  right: 15px; /* Adjusted position */
+  color: var(--Neutral-80);
+  font-size: 28px; /* Larger close icon */
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.modalClose:hover {
+  color: var(--text);
+}
+
+
+/* UserSettings */
+.userSettings {
+  width: auto; /* Allow modal to size content */
+  /* max-width: 480px; Remove fixed width */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.userSettings p {
+  font-size: 16px; /* Adjusted font size */
+  line-height: 1.6; /* Increased line height */
+  color: var(--Neutral-80); /* Lighter text color for paragraphs */
+}
+
+.userSettings form {
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid var(--Neutral-30);
+}
+
+.userSettingsButton {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Increased gap */
+  color: var(--Neutral-80);
+  transition: all 0.3s;
+  font-size: 16px; /* Adjusted font size */
+  background: transparent; /* Ensure no button background */
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.userSettingsButton .icon {
+  font-size: 24px; /* Adjusted icon size */
+}
+
+.userSettingsButton:hover {
+  color: var(--text);
+  background-color: var(--Neutral-20); /* Slight background on hover */
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form .largeInput {
+  font-size: 24px; /* Adjusted large input size */
+  border-bottom: 1px solid var(--Neutral-30);
+  background-color: transparent;
+  padding: 8px 0;
+}
+
+form > div,
+form label,
+form details div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Reduced gap */
+  user-select: none;
+}
+
+form label {
+  color: var(--Neutral-80); /* Lighter label color */
+  font-size: 14px; /* Smaller label font size */
+}
+
+
+form details > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Adjusted gap */
+}
+
+form summary {
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: var(--gluco-orange); /* Orange for summary/details */
+  font-weight: 500;
+}
+
+form input, /* General form inputs already styled above */
+form textarea { /* General form textareas already styled above */
+  font-size: 16px; /* Ensure consistency */
+  line-height: 1.5;
+}
+
+
+form input:focus,
+form textarea:focus {
+  background: var(--Neutral-20); /* Slightly darker focus background */
+  border-color: var(--gluco-orange);
+}
+
+form textarea {
+  resize: vertical; /* Allow vertical resize */
+  min-height: 80px;
+}
+
+form hr {
+  margin: 20px 0;
+  border-color: var(--Neutral-30);
+}
+
+form button:first-of-type {
+  margin-top: 20px; /* Reduced margin */
+}
+
+input[type='range'] {
+  padding: 0;
+  accent-color: var(--gluco-orange); /* Orange for range slider */
+  flex: 1;
+  cursor: pointer;
+}
+
+.checkbox {
+  flex-direction: row;
+  align-items: center; /* Align items center */
+  color: var(--Neutral-80);
+  gap: 8px; /* Gap between checkbox and label */
+}
+.checkbox input[type="checkbox"] {
+  width: auto; /* Reset width for checkbox */
+  accent-color: var(--gluco-orange);
+  cursor: pointer;
+}
+
+
+.temperature {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.temperature span {
+  font-family: monospace;
+  font-size: 14px;
+  color: var(--Neutral-80);
+}
+
+.colorPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.colorPicker li {
+  width: 30px; /* Smaller color swatches */
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden; /* Ensure button is contained */
+}
+
+.colorPicker li.active {
+  outline: 3px solid var(--gluco-orange); /* Orange outline for active */
+  outline-offset: 2px;
+}
+
+.colorPicker li button {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid var(--Neutral-30); /* Subtle border for swatches */
+  cursor: pointer;
+  padding:0;
+}
+.colorPicker li button:hover {
+  border-color: var(--Neutral-50);
+}
+
+
+/* edit agent */
+
+.editAgent {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Reduced gap */
+}
+
+.editAgent > div:first-child {
+  min-width: auto; /* Remove min-width, let modal control it */
+}
+
+.editAgent > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Reduced gap */
+}
+
+.agentPreview {
+  width: 200px; /* Smaller preview */
+  height: 200px;
+  background: var(--Neutral-5); /* Slightly lighter background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  pointer-events: none;
+  position: relative;
+  border: 1px solid var(--Neutral-20);
+}
+
+.agentPreview .agent {
+  position: static;
+  left: unset;
+  top: unset;
+  translate: 0 0 !important;
+}
+
+.voicePicker {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  color: var(--Neutral-80);
+}
+
+.voicePicker select {
+  accent-color: var(--gluco-orange);
+  background: var(--Neutral-15);
+  color: white;
+  padding: 8px 12px; /* Adjusted padding */
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid var(--Neutral-30);
+}
+
+.voicePicker select:focus-visible {
+  outline: none;
+  border-color: var(--gluco-orange);
+}
+
+
+.sleep label {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  color: var(--Neutral-80);
+}
+
+.sleep input {
+  accent-color: var(--gluco-orange);
+  width: auto; /* Reset width for checkbox */
+}
+
+/* agenst */
+
+.roomInfo {
+  position: relative;
+}
+
+.roomInfo h1 {
+  font-size: 24px; /* Adjusted size */
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  opacity: 0.7; /* Slightly more visible */
+  transition: all 0.2s;
+  text-align: left;
+  color: var(--text);
+}
+.roomInfo h1 .icon {
+  color: var(--Neutral-80); /* Lighter color for dropdown icon */
+}
+
+
+.roomInfo h1:hover,
+.roomInfo h1.active {
+  opacity: 1;
+}
+.roomInfo h1:hover .icon,
+.roomInfo h1.active .icon {
+  color: var(--text);
+}
+
+
+.roomInfo .edit {
+  font-size: 20px; /* Adjusted size */
+}
+
+.roomInfo .createButton {
+  opacity: 0.8; /* More visible */
+  background: var(--gluco-orange);
+  color: var(--Neutral-00);
+  font-size: 14px;
+  padding: 8px 12px;
+}
+.roomInfo .createButton:hover {
+  background-color: var(--gluco-orange-darker);
+}
+
+
+.roomName {
+  display: flex;
+  align-items: center; /* Align items */
+  gap: 10px; /* Add gap */
+}
+.roomName > button:first-child { /* Button for room name dropdown */
+  background: transparent;
+  padding: 0;
+}
+
+
+.roomDescription {
+  font-size: 14px; /* Adjusted size */
+  color: var(--gray-500);
+  margin-top: 5px; /* Reduced margin */
+  width: max-content;
+  max-width: 380px;
+  line-height: 1.5;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.createButton {
+  transition: opacity 0.3s;
+  /* margin-left: 10px; */
+  background: var(--Blue-500); /* Note: This is a general .createButton style, if a different blue button is intended elsewhere */
+}
+
+.hint .createButton {
+  margin-top: 10px;
+}
+
+.deleteRoomButton {
+  background: var(--Red-500); /* Keeping this red for delete action */
+  font-size: 12px;
+  margin-top: 15px;
+  padding: 6px 10px; /* Adjusted padding */
+}
+.deleteRoomButton:hover {
+  background: var(--Red-700);
+}
+
+
+.roomList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  background: var(--Neutral-10); /* Darker background */
+  border: 1px solid var(--Neutral-30);
+  padding: 15px; /* Adjusted padding */
+  border-radius: 8px;
+  width: 280px; /* Adjusted width */
+  margin-top: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.1s;
+  user-select: none;
+  max-height: 70vh;
+  overflow: auto;
+  z-index: 1000; /* Ensure dropdown is above other elements */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.roomList.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.roomList h3 {
+  font-size: 13px; /* Smaller heading */
+  margin-bottom: 8px; /* Reduced margin */
+  color: var(--Neutral-60); /* Lighter color */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.roomList ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Reduced gap */
+  border-bottom: 1px solid var(--Neutral-30);
+  padding-bottom: 15px; /* Adjusted padding */
+  margin-bottom: 10px; /* Adjusted margin */
+}
+
+.roomList li {
+  font-size: 18px; /* Adjusted font size */
+}
+
+.roomList li button {
+  color: var(--Neutral-80);
+  transition: all 0.2s;
+  width: 100%;
+  justify-content: flex-start; /* Align text to left */
+  padding: 8px 10px; /* Add padding */
+  font-size: 15px; /* Button text size */
+  border-radius: 4px;
+}
+
+.roomList li.active button,
+.roomList li button:hover {
+  color: var(--text);
+  background-color: var(--Neutral-20); /* Background on hover/active */
+}
+
+
+.roomList .newRoomButton {
+  margin-top: 10px; /* Reduced margin */
+  font-size: 14px;
+  color: var(--gluco-orange);
+  background-color: transparent;
+  padding: 8px 10px;
+}
+.roomList .newRoomButton .icon {
+  color: var(--gluco-orange);
+}
+.roomList .newRoomButton:hover {
+  background-color: var(--Neutral-20);
+  color: #fca567; /* Lighter orange on hover */
+}
+
+
+.error-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  width: 100%;
+  background: black;
+  color: white;
+  gap: 30px; /* Reduced gap */
+  position: fixed; /* Changed to fixed for true overlay */
+  top: 0;
+  left: 0;
+  transform: none; /* Removed transform */
+  z-index: 99991;
+  padding: 20px; /* Add padding for smaller screens */
+  text-align: center; /* Center text */
+}
+
+.error-screen .error-message-container,
+.error-screen .error-raw-message-container {
+  width: 100%;
+  text-align: center;
+  max-width: 600px; /* Slightly reduced max-width */
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.error-screen .close-button {
+  color: white;
+  font-size: 18px; /* Adjusted font size */
+  background-color: var(--gluco-orange); /* Orange button */
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+.error-screen .close-button:hover {
+  background-color: var(--gluco-orange-darker);
+}
+
+
+/* App Logo */
+.app-logo {
+  position: fixed;
+  bottom: 20px; /* Stays at the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 150px; /* Adjusted size */
+  height: auto;
+  z-index: 100; /* Below control tray if it were to overlap, but tray is higher now */
+  opacity: 0.8; /* Slightly less opacity */
+}
+
+
+/* Landing Page Styles */
+.landing-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--Neutral-10); /* Dark background for landing page */
+  color: var(--text);
+  padding: 20px;
+  text-align: center;
+  overflow-y: auto; /* Allow scrolling on small screens */
+}
+
+.language-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.button-link {
+  background: none;
+  border: none;
+  color: var(--gluco-orange);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 1em;
+}
+.button-link:hover {
+  color: #fca567; /* Lighter orange on hover */
+}
+
+
+.landing-page-content {
+  max-width: 600px;
+  width: 100%;
+  background-color: var(--Neutral-15); /* Card background for content */
+  padding: 30px;
+  border-radius: var(--card-border-radius);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items within the card */
+}
+
+.landing-logo {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 25px;
+}
+
+.landing-page-content h1 {
+  font-size: 2.5em;
+  color: var(--gluco-orange);
+  margin-bottom: 15px;
+}
+
+.landing-page-content .sub-welcome {
+  font-size: 1.3em;
+  color: var(--Neutral-80);
+  margin-bottom: 20px;
+}
+
+.benefits-list {
+  list-style: none; /* Changed from disc to none */
+  padding-left: 0; /* Removed padding for default bullets */
+  text-align: left;
+  margin-bottom: 25px;
+  align-self: flex-start; /* Align list to left */
+}
+
+.benefits-list li {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: var(--Neutral-90);
+  line-height: 1.5;
+}
+
+.benefit-checkmark {
+  color: var(--gluco-orange);
+  margin-right: 8px; /* Space between checkmark and text */
+  font-weight: bold; /* Optional: make checkmark bolder */
+}
+
+
+.landing-page-content h2 {
+  font-size: 1.5em;
+  color: var(--text);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.landing-page-content p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--Neutral-80);
+}
+
+.landing-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Gap between form groups */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align labels to the left */
+  gap: 8px; /* Gap between label and input */
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 1em;
+  color: var(--Neutral-80);
+}
+
+/* Styles for centering a specific form group and its label's text */
+.form-group.form-group-center {
+  align-items: center; /* Centers the select element horizontally */
+}
+
+/*
+.form-group.form-group-center label {
+  text-align: center; 
+}
+*/
+/* The above rule for label centering is removed as the label is no longer present */
+
+
+/* Input fields are already styled globally */
+
+.error-message {
+  color: var(--Red-400); /* Error message color */
+  font-size: 0.9em;
+  margin-top: -10px; /* Pull error closer to the form group */
+  margin-bottom: 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.submit-button.primary { /* Ensures landing page button also uses these styles */
+  background-color: var(--gluco-orange);
+  color: var(--Neutral-00);
+  padding: 12px 20px;
+  font-size: 1.1em;
+  font-weight: 500;
+  width: auto; /* Button width auto or specific if needed */
+  align-self: center; /* Center button */
+  margin-top: 10px;
+}
+
+.submit-button.primary:hover {
+  background-color: var(--gluco-orange-darker);
+}
+
+/* Responsive adjustments for Landing Page */
+@media (max-width: 768px) {
+  .landing-page-content {
+    padding: 20px;
+  }
+  .landing-page-content h1 {
+    font-size: 2em;
+  }
+  .landing-page-content .sub-welcome {
+    font-size: 1.1em;
+  }
+  .benefits-list li {
+    font-size: 1em;
+  }
+  .landing-page-content h2 {
+    font-size: 1.3em;
+  }
+  .landing-page-content p {
+    font-size: 1em;
+  }
+  .landing-logo {
+    max-width: 150px;
+  }
+}
+/* Ensure screen reader only text is hidden visually but accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
