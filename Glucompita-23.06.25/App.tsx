@@ -29,7 +29,7 @@ import LandingPage from './components/LandingPage'; // Import the new LandingPag
 import { LiveAPIProvider } from './contexts/LiveAPIContext';
 import { useUI } from './lib/state'; // Removed useUser as it's not directly used here for now
 
-const API_KEY = process.env.GEMINI_API_KEY as string;
+const API_KEY = process.env.REACT_APP_GEMINI_API_KEY as string;
 if (typeof API_KEY !== 'string') {
   throw new Error(
     'Missing required environment variable: REACT_APP_GEMINI_API_KEY'
